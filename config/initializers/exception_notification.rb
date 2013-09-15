@@ -1,5 +1,5 @@
 unless Rails.env.development?
-  CakesOnWeb::Application.config.middleware.use(
+  Raindrop::Application.config.middleware.use(
     ExceptionNotifier,
     email_prefix:         "[#{Rails.env}][#{Settings.site_name}] ",
     sender_address:       %{"ExceptionNotifier" <rails.dev0115@gmail.com>},
