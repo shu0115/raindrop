@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
   # 一覧
   def index
-    @projects = Project.where(user_id: current_user.id)
+    @projects = Project.where(user_id: current_user.id).order(created_at: :desc)
     @project  = Project.new
   end
 
