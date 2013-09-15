@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+
+.large_font {
+  font-size: 16px;
+}

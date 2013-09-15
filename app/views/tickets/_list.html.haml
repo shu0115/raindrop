@@ -13,7 +13,7 @@
   - tickets.each do |ticket|
     %tr
       %td= render partial: '/layouts/user_icon', locals: { user: ticket.user, size: "18x18", klass: "margin_minus2" }
-      %td= ticket.title
+      %td.large_font= ticket.title
       %td= ticket.status
       %td= link_to_unless status == 'current', 'Current', status_update_project_ticket_path(ticket.project_id, ticket, status: 'current'), method: :post
       %td= link_to_unless status == 'backlog', 'Backlog', status_update_project_ticket_path(ticket.project_id, ticket, status: 'backlog'), method: :post
