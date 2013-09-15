@@ -8,16 +8,16 @@
         - @ticket.errors.full_messages.each do |msg|
           %li= msg
   .field
-    = f.text_field :title, size: 100
-  .field
-    = f.text_area :content, rows: 10, cols: 100
-  .field
     = f.radio_button :status , "current"
     = f.label :status_current, " current"
     = f.radio_button :status , "backlog"
     = f.label :status_backlog, " backlog"
     = f.radio_button :status , "done"
     = f.label :status_backlog, " done"
+  .field
+    = f.text_field :title, size: 100
+  .field
+    = f.text_area :content, rows: 10, cols: 100
   .field
     = f.submit '保存', data: { disable_with: '保存' }
 
