@@ -27,6 +27,8 @@
 
 %hr
 
+%h1 #{@project.name}
+
 %h2 current／進行中
 - if @current_tickets.present?
   = render partial: '/tickets/list', locals: { tickets: @current_tickets, status: 'current' }
