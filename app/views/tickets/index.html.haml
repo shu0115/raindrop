@@ -39,4 +39,6 @@
 - if @done_tickets.present?
   = render partial: '/tickets/list', locals: { tickets: @done_tickets, status: 'done' }
 
+%hr
+
 = link_to '新規作成', new_project_ticket_path(project_id: @project.id)
