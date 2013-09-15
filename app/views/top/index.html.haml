@@ -1,2 +1,14 @@
-%h1
-  Welcome to #{Settings.app_name}.
+%h1 Welcome to #{Settings.app_name}.
+
+%br
+
+- unless signed_in?
+  - # 未ログイン
+  %h2 Please Login:
+  %h3=link_to "Twitter", "/auth/twitter"
+  %h3=link_to "Facebook", "/auth/facebook"
+  %h3=link_to "GitHub", "/auth/gitHub"
+
+%br
+%br
+%br

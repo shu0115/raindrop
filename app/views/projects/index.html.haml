@@ -1,0 +1,26 @@
+%h1 プロジェクト一覧
+
+= form_for @project do |f|
+  = f.text_field :name, size: 50
+  = f.submit '作成', data: { disable_with: '作成' }
+
+%br
+
+- if @projects.present?
+  %table
+    %tr
+      %th オーナー
+      %th プロジェクト名
+      %th
+      %th
+      %th
+
+    - @projects.each do |project|
+      %tr
+        %td= render partial: '/layouts/user_icon', locals: { user: project.user, size: "18x18", klass: "margin_minus2" }
+        %td= project.name
+        %td= link_to 'チケット', tickets_path(project_id: project.id)
+        %td= link_to '編集', edit_project_path(project)
+        %td= link_to_if project.user_id == current_user.id, '削除', project, method: :delete, data: { confirm: "#{project.name}を削除します。よろしいですか？" }
+
+  %br

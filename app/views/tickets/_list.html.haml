@@ -1,0 +1,25 @@
+%table
+  %tr
+    %th 作成者
+    %th タイトル
+    %th ステータス
+    %th
+    %th
+    %th
+    %th
+    %th
+    %th
+
+  - tickets.each do |ticket|
+    %tr
+      %td= render partial: '/layouts/user_icon', locals: { user: ticket.user, size: "18x18", klass: "margin_minus2" }
+      %td= ticket.title
+      %td= ticket.status
+      %td= link_to_unless status == 'current', 'Current', status_update_ticket_path(ticket, status: 'current'), method: :post
+      %td= link_to_unless status == 'backlog', 'Backlog', status_update_ticket_path(ticket, status: 'backlog'), method: :post
+      %td= link_to_unless status == 'done', 'Done', status_update_ticket_path(ticket, status: 'done'), method: :post
+      %td= link_to '詳細', ticket
+      %td= link_to '編集', edit_ticket_path(ticket)
+      %td= link_to '削除', ticket, method: :delete, data: { confirm: '削除します。よろしいですか？' }
+
+%br
