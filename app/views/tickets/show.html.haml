@@ -13,6 +13,6 @@
   %b Status:
   = @ticket.status
 
-= link_to 'Edit', edit_ticket_path(@ticket)
-\|
-= link_to 'Back', tickets_path
+= link_to '編集', edit_project_ticket_path(@ticket.project_id, @ticket)
+|
+= link_to '一覧', project_tickets_path(@ticket.project_id)

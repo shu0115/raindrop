@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :projects
+  has_many :tickets
+
   # auth情報更新
   def auth_update( auth )
     if auth["provider"] == "facebook"

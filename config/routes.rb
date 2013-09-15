@@ -1,10 +1,11 @@
 Raindrop::Application.routes.draw do
-  resources :tickets do
-    member do
-      post 'status_update'
+  resources :projects do
+    resources :tickets do
+      member do
+        post 'status_update'
+      end
     end
   end
-  resources :projects
 
   root to: 'top#index'
 

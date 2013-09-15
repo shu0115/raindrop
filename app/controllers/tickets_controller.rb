@@ -35,7 +35,7 @@ class TicketsController < ApplicationController
     @ticket.project_id = project_id
 
     if @ticket.save
-      redirect_to tickets_path(project_id: @ticket.project_id)
+      redirect_to project_tickets_path(@ticket.project_id)
     else
       render action: 'new'
     end
@@ -46,7 +46,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find_by(user_id: current_user.id, id: id)
 
     if @ticket.update(ticket)
-      redirect_to tickets_path(project_id: @ticket.project_id)
+      redirect_to project_tickets_path(@ticket.project_id)
     else
       render action: 'edit'
     end
@@ -58,7 +58,7 @@ class TicketsController < ApplicationController
     ticket.status = status
     ticket.save!
 
-    redirect_to tickets_path(project_id: ticket.project_id)
+    redirect_to project_tickets_path(ticket.project_id)
   end
 
   # DELETE /tickets/1
@@ -66,6 +66,6 @@ class TicketsController < ApplicationController
     ticket = Ticket.find_by(user_id: current_user.id, id: id)
     ticket.destroy
 
-    redirect_to tickets_url
+    redirect_to project_tickets_path
   end
 end

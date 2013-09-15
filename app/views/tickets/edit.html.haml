@@ -1,29 +1,28 @@
 %h1 Editing ticket
 
-= form_for @ticket do |f|
+= form_for @ticket, url: project_ticket_path(@ticket.project_id, @ticket) do |f|
   - if @ticket.errors.any?
     #error_explanation
       %h2= "#{pluralize(@ticket.errors.count, "error")} prohibited this ticket from being saved:"
       %ul
         - @ticket.errors.full_messages.each do |msg|
           %li= msg
+  .field
+    = f.text_field :title, size: 100
+  .field
+    = f.text_area :content, rows: 5, cols: 80
+  .field
+    = f.radio_button :status , "current"
+    = f.label :status_current, " current"
+    = f.radio_button :status , "backlog"
+    = f.label :status_backlog, " backlog"
+    = f.radio_button :status , "done"
+    = f.label :status_backlog, " done"
+  .field
+    = f.submit '保存', data: { disable_with: '保存' }
 
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :content
-    = f.text_area :content
-  .field
-    = f.label :status
-    = f.text_field :status
-  .actions
-    = f.submit 'Save'
+%br
 
-
-= link_to 'Show', @ticket
-\|
-= link_to 'Back', tickets_path
+= link_to '詳細', project_ticket_path(@ticket.project_id, @ticket)
+|
+= link_to '一覧', project_tickets_path(@ticket.project_id)
