@@ -14,14 +14,15 @@
         - @ticket.errors.full_messages.each do |msg|
           %li= msg
   .field
-    = f.text_field :title, size: 100
-  .field
-    = f.text_area :content, rows: 5, cols: 80
-  .field
     = f.radio_button :status , "current"
     = f.label :status_current, " current"
     = f.radio_button :status , "backlog", checked: true
     = f.label :status_backlog, " backlog"
+  .field
+    = f.text_field :title, size: 100
+  .field
+    = f.text_area :content, rows: 5, cols: 80
+  .field
     = f.submit '作成', data: { disable_with: '作成' }
 
 %hr
