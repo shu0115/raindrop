@@ -17,7 +17,7 @@
       %td= ticket.status
       %td= link_to_unless status == 'current', 'Current', status_update_project_ticket_path(ticket.project_id, ticket, status: 'current'), method: :post
       %td= link_to_unless status == 'backlog', 'Backlog', status_update_project_ticket_path(ticket.project_id, ticket, status: 'backlog'), method: :post
-      %td= link_to_unless status == 'done', 'Done', status_update_project_ticket_path(ticket.project_id, ticket, status: 'done'), method: :post
+      %td= link_to_unless status == 'done', 'Done', status_update_project_ticket_path(ticket.project_id, ticket, status: 'done'), method: :post, data: { confirm: "完了にします。よろしいですか？" }
       %td= link_to '詳細', project_ticket_path(ticket.project_id, ticket)
       %td= link_to '編集', edit_project_ticket_path(ticket.project_id, ticket)
       %td= link_to '削除', project_ticket_path(ticket.project_id, ticket), method: :delete, data: { confirm: '削除します。よろしいですか？' }
