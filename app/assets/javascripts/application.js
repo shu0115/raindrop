@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  // 全てのaタグにtarget=blank指定
+  $('.target_blank a').attr('target' , '_blank');
+});

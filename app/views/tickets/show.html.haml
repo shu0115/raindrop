@@ -1,15 +1,15 @@
 %p#notice= notice
 
-%p
+%div
   %b User:
   = @ticket.user_id
-%p
+%div.target_blank
   %b Title:
-  = @ticket.title
-%p
+  =raw show_markdown(@ticket.title)
+%div.target_blank
   %b Content:
-  %pre= @ticket.content
-%p
+  =raw show_markdown(@ticket.content)
+%div
   %b Status:
   = @ticket.status
 
