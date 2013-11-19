@@ -55,6 +55,7 @@ gem 'rails_config'
 gem 'tapp'
 gem 'awesome_print'
 gem "exception_notification"
+gem 'markdown-scaffold'
 
 group :development do
   gem 'pry-rails'
